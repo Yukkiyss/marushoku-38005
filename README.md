@@ -42,3 +42,49 @@ http//00.00.000.000
 % git clone https://github.com/Yukkiyss/marushoku-38005
 # 工夫したポイント
 ~開発次第記載~
+
+# テーブル設計
+
+## users テーブル
+
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| nickname           | string | null: false |
+| email              | string | null: false,unique:true |
+| encrypted_password | string | null: false |
+| last_name          | string | null: false |
+| first_name         | string | null: false |
+
+### Association
+
+- has_many :stores
+- has_many :comments
+
+## stores テーブル
+
+| Column                         | Type       | Options                        |
+| ------------------------------ | ---------- | ------------------------------ |
+| store_name                     | string     | null: false                    |
+| store_environment              | integer    | null: false                    |
+| category_id                    | integer    | null: false                    |
+| recommendation                 | text       | null: false                    |
+| user                           | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- has_many :comments
+
+## comments テーブル
+
+| Column                         | Type       | Options                        |
+| ------------------------------ | ---------- | ------------------------------ |
+| content                        | string     | null: false                    |
+| store                          | references | null: false, foreign_key: true |
+| user                           | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :stores
+
