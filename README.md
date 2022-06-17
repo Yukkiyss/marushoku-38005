@@ -72,8 +72,8 @@ http//00.00.000.000
 
 ### Association
 
-- belongs_to :user
 - has_many :comments
+- belongs_to :user
 
 ## comments テーブル
 
