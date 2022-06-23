@@ -65,8 +65,8 @@ http//00.00.000.000
 | Column                         | Type       | Options                        |
 | ------------------------------ | ---------- | ------------------------------ |
 | store_name                     | string     | null: false                    |
-| store_environment              | integer    | null: false                    |
 | category_id                    | integer    | null: false                    |
+| store_environment              | text       | null: false                    |
 | recommendation                 | text       | null: false                    |
 | user                           | references | null: false, foreign_key: true |
 
@@ -79,12 +79,12 @@ http//00.00.000.000
 
 | Column                         | Type       | Options                        |
 | ------------------------------ | ---------- | ------------------------------ |
-| content                        | string     | null: false                    |
+| content                        | text       | null: false                    |
 | store                          | references | null: false, foreign_key: true |
 | user                           | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :stores
+- belongs_to :store
 
