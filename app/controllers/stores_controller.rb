@@ -4,6 +4,12 @@ class StoresController < ApplicationController
   def index
   end
 
+  def new
+  end
+
+  def create
+  end
+
   private
 
   def store_params
