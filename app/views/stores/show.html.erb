@@ -1,0 +1,49 @@
+  <div class="inner">
+    <div class="store__wrapper">
+      <p class="store__hedding">
+        <%= @store.store_name%>
+      </p>
+      <%= link_to @store.user.nickname, user_path(@store.user_id), class: :store__user %>
+      <%# 編集・削除機能実装後 店舗投稿者とログインしているユーザーが同じであれば以下を表示 %>
+      <%# <% if user_signed_in? && current_user.id == @store.user_id %>
+        <%# <div class="store__manage"> %>
+          <%# <%= link_to "編集する", edit_prototype_path(@store), class: :prototype__btn %>
+          <%# <%= link_to "削除する", prototype_path(@store), method: :delete, class: :prototype__btn %>
+        <%# </div> %>
+      <%# <% end %>  
+      <%# // 店舗投稿者とログインしているユーザーが同じであれば以下を表示 %>
+      <div class="store__image">
+        <%= image_tag @store.image %>
+      </div>
+      <div class="store__body">
+        <div class="store__detail">
+          <p class="detail__title">店舗名</p>
+          <p class="detail__message">
+            <%= @store.store_name %>
+          </p>
+        </div>
+
+        <div class="store__detail">
+          <p class="detail__title">カテゴリー</p>
+          <p class="detail__message">
+            <%= @store.category.name %>
+          </p>
+        </div>
+
+        <div class="store__detail">
+          <p class="detail__title">店舗環境</p>
+          <p class="detail__message">
+            <%= @store.store_environment %>
+          </p>
+        </div>
+
+        <div class="store__detail">
+          <p class="detail__title">オススメポイント</p>
+          <p class="detail__message">
+            <%= @store.recommendation %>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>

@@ -18,6 +18,10 @@ class StoresController < ApplicationController
     end
   end
 
+  def show
+    @store = Store.find(params[:id])
+  end
+
   private
 
   def store_params
