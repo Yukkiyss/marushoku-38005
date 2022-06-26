@@ -4,13 +4,13 @@
         <%= @store.store_name%>
       </p>
       <%= link_to @store.user.nickname, store_path(@store.user_id), class: :store__user %>
-      <%# 編集・削除機能実装後 店舗投稿者とログインしているユーザーが同じであれば以下を表示 %>
-      <%# <% if user_signed_in? && current_user.id == @store.user_id %>
-        <%# <div class="store__manage"> %>
-          <%# <%= link_to "編集する", edit_prototype_path(@store), class: :prototype__btn %>
+      <%# 削除機能実装後 店舗投稿者とログインしているユーザーが同じであれば以下を表示 %>
+      <% if user_signed_in? && current_user.id == @store.user_id %>
+        <div class="store__manage">
+          <%= link_to "編集する", edit_store_path(@store), class: :store__btn %>
           <%# <%= link_to "削除する", prototype_path(@store), method: :delete, class: :prototype__btn %>
-        <%# </div> %>
-      <%# <% end %>  
+        </div>
+      <% end %>  
       <%# // 店舗投稿者とログインしているユーザーが同じであれば以下を表示 %>
       <div class="store__image">
         <%= image_tag @store.image %>
