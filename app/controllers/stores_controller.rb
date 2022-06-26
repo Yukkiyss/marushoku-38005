@@ -2,6 +2,7 @@ class StoresController < ApplicationController
   before_action :move_to_index, except: [:index]
 
   def index
+    @stores = Store.all
   end
 
   def new
