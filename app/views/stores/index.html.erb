@@ -1,5 +1,7 @@
-<div class="wrapper">
-  <div class="card__wrapper">
-    <%= render "store" %>
+<div class="inner">
+  <div class="wrapper">
+    <div class="card__wrapper">
+      <%= render partial: 'store', collection: @stores %>
+    </div>
   </div>
 </div>

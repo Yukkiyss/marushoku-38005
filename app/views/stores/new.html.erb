@@ -1,0 +1,49 @@
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="form_page-heading">店舗情報投稿</h2> 
+      <%= form_with model: @store, local: true do |f| %>
+      
+      <%# 商品画像 %>
+      <div class="form_field">
+        <%= f.label :image, "画像" %><br />
+        <%= f.file_field :image, id:"store_image" %>
+      </div>
+      <%# /商品画像 %>
+
+      <%# 店舗名 %>
+      <div class="form_field">
+        <%= f.label :store_name, "店舗名" %><br />
+        <%= f.text_area :store_name, id:"store-name" %>
+      </div>
+      <%# /店舗名 %>
+
+      <%# カテゴリー選択 %>
+      <div class="form_field">
+        <%= f.label :category_id, "カテゴリー" %><br />
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"store-category"}) %>
+      </div>
+      <%# /カテゴリー選択 %>
+
+      <%# 店舗環境 %>
+      <div class="form_field">
+        <%= f.label :store_environment, "店舗環境" %><br />
+        <%= f.text_area :store_environment, id:"store_environment" %>
+      </div>
+      <%# /店舗環境 %>
+
+      <%# オススメ %>
+      <div class="form_field">
+        <%= f.label :recommendation, "オススメポイント" %><br />
+        <%= f.text_area :recommendation, id:"recommendation" %>
+      </div>
+      <%# /オススメ %>
+
+      <div class="store_actions">
+      <%= f.submit "保存する", class: :form__btn  %>
+      </div>
+
+    </div>
+    <% end %>
+  </div>
+</div>
