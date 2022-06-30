@@ -3,7 +3,7 @@
   <div class="card__body">
     <%= link_to store.store_name, store_path(store.id), class: :card__title%>
     <p>
-    <%= link_to store.user.nickname, store_path(store.user.id), class: :card__user %>
+    <%= link_to store.user.nickname, user_path(store.user.id), class: :card__user %>
     </p>
   </div>
 </div>

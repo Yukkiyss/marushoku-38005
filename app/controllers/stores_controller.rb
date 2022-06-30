@@ -1,4 +1,7 @@
 class StoresController < ApplicationController
+
+  before_action :authenticate_user! , except: [:index, :show]
+  before_action :move_to_root_path, only: [:edit]
   before_action :move_to_index, except: [:index]
 
   def index
@@ -47,6 +50,13 @@ class StoresController < ApplicationController
 
   def store_params
     params.require(:store).permit(:store_name, :category_id, :store_environment, :recommendation, :image).merge(user_id: current_user.id)
+  end
+
+  def move_to_root_path
+    @store = Store.find(params[:id])
+    unless current_user.id == @store.user_id
+      redirect_to root_path
+    end
   end
 
   def move_to_index
