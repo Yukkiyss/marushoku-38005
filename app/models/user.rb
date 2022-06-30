@@ -8,4 +8,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
   validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
 
+  has_many :stores
+  has_many :comments
+
 end

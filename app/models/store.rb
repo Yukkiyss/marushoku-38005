@@ -1,7 +1,7 @@
 class Store < ApplicationRecord
   belongs_to :user
   has_one_attached :image
-  # has_many :comments
+  has_many :comments, dependent: :destroy
 
   validates :store_name, presence: true
   validates :store_environment, presence: true
