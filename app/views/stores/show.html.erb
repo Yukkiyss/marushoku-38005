@@ -3,7 +3,7 @@
       <p class="store__hedding">
         <%= @store.store_name%>
       </p>
-      <%= link_to @store.user.nickname, store_path(@store.user_id), class: :store__user %>
+      <%= link_to @store.user.nickname, user_path(@store.user.id), class: :store__user %>
       <%# 削除機能実装後 店舗投稿者とログインしているユーザーが同じであれば以下を表示 %>
       <% if user_signed_in? && current_user.id == @store.user_id %>
         <div class="store__manage">
