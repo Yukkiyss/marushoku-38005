@@ -5,7 +5,7 @@ class StoresController < ApplicationController
   before_action :move_to_index, except: [:index]
 
   def index
-    @stores = Store.all
+    @stores = Store.all.order(created_at: :desc)
   end
 
   def new
